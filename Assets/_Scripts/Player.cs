@@ -59,8 +59,8 @@ public class Player : MonoBehaviour
             Jump(true);
         }
 
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, 3.5f, 1 << 8);
-        Debug.DrawRay(transform.position, Vector2.down * 3.5f, Color.green);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, 1.8f, 1 << 8);
+        Debug.DrawRay(transform.position, Vector2.down * 1.8f, Color.green);
 
         if(hitInfo.collider != null && !resetJump)
         {

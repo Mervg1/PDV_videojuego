@@ -109915,6 +109915,55 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &121666186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4816635162847574805, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2080586713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &121666187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121666186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d524fde6901ca4a198bd73c0cd93b63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Jump
+    sentences:
+    - "Parece que esa pintura es da\xF1ina, tendr\xE9 que saltarla.."
+    - Utiliza la barra espaciadora para lograrlo.
+--- !u!61 &121666188
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121666186}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6, y: 6}
+  m_EdgeRadius: 0
 --- !u!1 &235759652
 GameObject:
   m_ObjectHideFlags: 0
@@ -127821,3 +127870,225 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: bc09841625c486941b3df0cdba545976, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9022bbc0c0221fb4b83761d3090a8e26, type: 3}
+--- !u!1 &2049984207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4816635162847574805, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4816635163215609306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2049984210
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049984207}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!1001 &2080586713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4816635162847574805, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_Name
+      value: Trigger1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Solo tu puedes salvarnos...
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: "Parece que esa pintura roja es da\xF1ina, tendr\xE9 que saltar a esa
+        plataforma.."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Utiliza la barra espaciadora para hacerlo.
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8, type: 3}
+--- !u!1001 &4816635163215609306
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4816635162847574805, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_Name
+      value: NoviaJimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.78409
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574794, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.name
+      value: Novia Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Solo tu puedes salvarnos...
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: King Gray se ha robado todo el color
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816635162847574795, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Lo vas a encontrar en su castillo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dab3ab9ad7f44b4e9f41839f1631ea8, type: 3}

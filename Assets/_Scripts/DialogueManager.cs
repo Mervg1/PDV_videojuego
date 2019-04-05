@@ -33,18 +33,22 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+        Debug.Log("Blabla");
     }
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        Debug.Log("Blabla");
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
 
         string sentence = sentences.Dequeue();
+        Debug.Log("Blabla");
         StopAllCoroutines();
+        Debug.Log("Blabla2");
         StartCoroutine(TypeSentence(sentence));
     }
 

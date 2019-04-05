@@ -7,6 +7,8 @@ public class Brush : MonoBehaviour
     private float up, down;
     private bool upDown = true;
 
+    public Dialogue Storydialogue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +48,15 @@ public class Brush : MonoBehaviour
             if(player != null)
             {
                 player.havebrush = true;
+                TriggerDialogue();
+
             }
             Destroy(this.gameObject);
         }
+    }
+
+    public void TriggerDialogue()
+    {
+        FindObjectOfType<StoryManager>().StartDialogue(Storydialogue);
     }
 }

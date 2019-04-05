@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Minion : Enemy
 {
@@ -9,6 +10,10 @@ public class Minion : Enemy
     private BulletEnemy bullet;
     private bool canShoot = true;
     private bool right = true;
+
+
+    public Animator transitionAnim;
+    public string sceneName;
 
     // Start is called before the first frame update
     private void Start()
@@ -45,10 +50,12 @@ public class Minion : Enemy
         if(other.gameObject.tag == "Player")
         {
             Destroy(other.gameObject);
+            StartCoroutine(LoadScene());
         }
         if(other.gameObject.tag == "Bullet")
         {
             Destroy(this.gameObject);
+            StartCoroutine(LoadScene());
         }
     }
 
@@ -69,5 +76,12 @@ public class Minion : Enemy
     {
         yield return new WaitForSeconds(1f);
         canShoot = true;
+    }
+
+    IEnumerator LoadScene()
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(sceneName);
     }
 }

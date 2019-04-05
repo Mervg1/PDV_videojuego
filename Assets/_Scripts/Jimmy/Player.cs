@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator anim;
     private Rigidbody2D _rigid;
+    //public Rigidbody2D rb;
+
+
+   
 
     // Start is called before the first frame update
     void Start()
@@ -121,4 +125,7 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("Attack", attack);
     }
+
+
+
 }

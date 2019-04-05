@@ -3,20 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransitions : MonoBehaviour
+public class SceneButton : MonoBehaviour
 {
-
     public Animator transitionAnim;
     public string sceneName;
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.P))
-        {
-            StartCoroutine(LoadScene());
-        }
-    }
 
     IEnumerator LoadScene()
     {
@@ -28,5 +18,6 @@ public class SceneTransitions : MonoBehaviour
     public void DisplayNextScene()
     {
         StartCoroutine(LoadScene());
+        Debug.Log("HOLA");
     }
 }

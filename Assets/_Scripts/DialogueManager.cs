@@ -46,9 +46,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        Debug.Log("Blabla");
         StopAllCoroutines();
-        Debug.Log("Blabla2");
         StartCoroutine(TypeSentence(sentence));
     }
 

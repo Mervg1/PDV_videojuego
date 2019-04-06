@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitions : MonoBehaviour
 {
-
     public Animator transitionAnim;
     public string sceneName;
+    private Player player;
+
 
     // Update is called once per frame
     void Update()
@@ -23,10 +24,5 @@ public class SceneTransitions : MonoBehaviour
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
-    }
-
-    public void DisplayNextScene()
-    {
-        StartCoroutine(LoadScene());
     }
 }

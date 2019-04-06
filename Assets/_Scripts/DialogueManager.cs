@@ -33,12 +33,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayNextSentence();
-        Debug.Log("Blabla");
+        //Debug.Log("Blabla");
     }
 
     public void DisplayNextSentence()
     {
-        Debug.Log("Blabla");
+        //Debug.Log("Blabla");
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -46,13 +46,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-<<<<<<< HEAD
+        //Debug.Log("Blabla");
         StopAllCoroutines();
-=======
-        Debug.Log("Blabla");
-        StopAllCoroutines();
-        Debug.Log("Blabla2");
->>>>>>> b7b3ad3c0e8d17f9129ac54d31951e2f493bbe4a
+        //Debug.Log("Blabla2");
         StartCoroutine(TypeSentence(sentence));
     }
 
@@ -68,7 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        Debug.Log("End of the conversation");
+        //Debug.Log("End of the conversation");
         animator.SetBool("IsOpen", false);
     }
 

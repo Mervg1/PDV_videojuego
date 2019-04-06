@@ -1,16 +1,15 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletEnemy : MonoBehaviour
 {
     [SerializeField] private float speed = 15f;
-    public bool right = true;
+    public bool right = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -34,6 +33,10 @@ public class BulletEnemy : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Destroy(other.gameObject);
+        }
+        if(other.gameObject.tag  == "Floor")
+        {
+            Destroy(this.gameObject);
         }
     }
 }

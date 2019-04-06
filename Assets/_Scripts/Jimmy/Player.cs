@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -13,14 +14,15 @@ public class Player : MonoBehaviour
     private float canFire = 0f;
     public bool havebrush = false;
     private bool rigth = true;
+    public bool haveKey = true;
     
     private SpriteRenderer sprite;
     private Animator anim;
     private Rigidbody2D _rigid;
-    //public Rigidbody2D rb;
 
-
-   
+    [SerializeField] private Animator transitionAnim;
+    [SerializeField] private string sceneName;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +72,13 @@ public class Player : MonoBehaviour
         {
             Jump(false);
             isGrounded = true;
+        }
+
+        RaycastHit2D dangerHit = Physics2D.Raycast(transform.position, Vector2.down, 1.8f, 1 << 9);
+
+        if (dangerHit.collider != null)
+        {
+            StartCoroutine(LoadScene());
         }
     }
 
@@ -126,6 +135,19 @@ public class Player : MonoBehaviour
         anim.SetBool("Attack", attack);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            StartCoroutine(LoadScene());
+        }
+    }
 
-
+    IEnumerator LoadScene()
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(sceneName);
+        Destroy(this.gameObject);
+    }
 }

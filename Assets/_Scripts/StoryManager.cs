@@ -56,7 +56,7 @@ public class StoryManager : MonoBehaviour
 
     void EndDialogue()
     {
-        Debug.Log("End of the conversation");
+        //Debug.Log("End of the conversation");
         animator.SetBool("StoryOpen", false);
     }
 

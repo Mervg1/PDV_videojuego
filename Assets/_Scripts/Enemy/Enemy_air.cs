@@ -39,4 +39,13 @@ public class Enemy_air : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, visionRadius);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Bullet")
+        {
+            //Debug.Log(collision.gameObject.tag);
+            Destroy(this.gameObject);
+        }
+    }
 }

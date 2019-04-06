@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Minion : Enemy
 {
@@ -9,16 +8,18 @@ public class Minion : Enemy
     [SerializeField] private GameObject bulletPrefab;
     private BulletEnemy bullet;
     private bool canShoot = true;
-    private bool right = true;
-
-
-    public Animator transitionAnim;
-    public string sceneName;
+    private bool right = false;
+    private bool canMove = true;
+    private Animator _anim;
+    private SpriteRenderer _sprite;
 
     // Start is called before the first frame update
     private void Start()
     {
+        _anim = GetComponentInChildren<Animator>();
+        _sprite = GetComponentInChildren<SpriteRenderer>();
         bullet = bulletPrefab.GetComponent<BulletEnemy>();
+        _currentTarget = pointA.position;
     }
 
     // Update is called once per frame
@@ -30,19 +31,27 @@ public class Minion : Enemy
 
     void Movement()
     {
-        if(transform.position.x == pointA.position.x)
+        if (_currentTarget == pointA.position)
         {
-            _currentTarget = pointB.position;
-            right = true;
-            bullet.right = true;
-        }else if(transform.position.x == pointB.position.x)
+            _sprite.flipX = true;
+        }
+        else
         {
-            _currentTarget = pointA.position;
-            right = false;
-            bullet.right = false;
+            _sprite.flipX = false;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, _currentTarget, speed * Time.deltaTime);
+        if ((transform.position.x == pointA.position.x) || (transform.position.x == pointB.position.x))
+        {
+            MoveAnimation(false);
+            canMove = false;
+            StartCoroutine(WaitToTurn());
+        }
+
+        if (canMove)
+        {
+            MoveAnimation(true);
+            transform.position = Vector3.MoveTowards(transform.position, _currentTarget, speed * Time.deltaTime);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -50,12 +59,10 @@ public class Minion : Enemy
         if(other.gameObject.tag == "Player")
         {
             Destroy(other.gameObject);
-            StartCoroutine(LoadScene());
         }
         if(other.gameObject.tag == "Bullet")
         {
             Destroy(this.gameObject);
-            StartCoroutine(LoadScene());
         }
     }
 
@@ -64,9 +71,9 @@ public class Minion : Enemy
         if (canShoot)
         {
             if(right)
-                Instantiate(bulletPrefab, transform.position + new Vector3(0.97f, 1.14f, 0), Quaternion.Euler(0f, 0f, 40f));
+                Instantiate(bulletPrefab, transform.position + new Vector3(1f, 0.8f, 0), Quaternion.Euler(0f, 0f, 40f));
             if(!right)
-                Instantiate(bulletPrefab, transform.position + new Vector3(-0.97f, 1.14f, 0), Quaternion.Euler(0f, 0f, 40f));
+                Instantiate(bulletPrefab, transform.position + new Vector3(-1f, 0.8f, 0), Quaternion.Euler(0f, 0f, -40f));
             canShoot = false;
             StartCoroutine(waitForShoot());
         }
@@ -74,14 +81,30 @@ public class Minion : Enemy
 
     IEnumerator waitForShoot()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         canShoot = true;
     }
 
-    IEnumerator LoadScene()
+    IEnumerator WaitToTurn()
     {
-        transitionAnim.SetTrigger("end");
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(sceneName);
+        yield return new WaitForSeconds(3f);
+        canMove = true;
+        if (transform.position.x == pointA.position.x)
+        {
+            _currentTarget = pointB.position;
+            right = true;
+            bullet.right = true;
+        }
+        else if (transform.position.x == pointB.position.x)
+        {
+            _currentTarget = pointA.position;
+            right = false;
+            bullet.right = false;
+        }
+    }
+
+    public void MoveAnimation(bool move)
+    {
+        _anim.SetBool("canMove", move);
     }
 }

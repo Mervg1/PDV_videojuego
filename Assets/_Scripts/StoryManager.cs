@@ -7,12 +7,14 @@ public class StoryManager : MonoBehaviour
 {
     public Text dialogueText;
     public Animator animator;
+    public Player player;
 
     public Queue<string> sentences;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<Player>();
         sentences = new Queue<string>();
     }
 
@@ -20,7 +22,8 @@ public class StoryManager : MonoBehaviour
     {
 
         animator.SetBool("StoryOpen", true);
-
+        player.canMove = false;
+        player.MoveAnimation(0);
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -35,10 +38,10 @@ public class StoryManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
+            player.canMove = true;
             EndDialogue();
             return;
         }
-
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));

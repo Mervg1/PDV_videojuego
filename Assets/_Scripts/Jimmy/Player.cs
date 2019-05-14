@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public bool havebrush = false;
     private bool rigth = true;
     public bool haveKey = true;
+    public bool canMove = true;
     
     private SpriteRenderer sprite;
     private Animator anim;
@@ -35,7 +36,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (canMove)
+        {
+            Movement();
+        }
+        
         Attack();
     }
 

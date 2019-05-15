@@ -18,6 +18,7 @@ public class StoryManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
+
     public void StartDialogue(Dialogue dialogue)
     {
 

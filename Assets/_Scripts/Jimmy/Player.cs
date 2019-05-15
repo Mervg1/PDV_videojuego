@@ -83,7 +83,8 @@ public class Player : MonoBehaviour
 
         if (dangerHit.collider != null)
         {
-            StartCoroutine(LoadScene());
+            //StartCoroutine(LoadScene());
+            Health.health -= 1;
         }
     }
 
@@ -144,15 +145,16 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            StartCoroutine(LoadScene());
+            //StartCoroutine(LoadScene());
+            Health.health -= 1;
         }
     }
 
-    IEnumerator LoadScene()
+    /*IEnumerator LoadScene()
     {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
         Destroy(this.gameObject);
-    }
+    }*/
 }

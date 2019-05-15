@@ -37,11 +37,11 @@ public class M_inion : MonoBehaviour
     {
         if (_currentTarget == rigthP.position)
         {
-            _sprite.flipX = true;
+            _sprite.flipX = false;
         }
         else
         {
-            _sprite.flipX = false;
+            _sprite.flipX = true;
         }
 
         if ((transform.position.x == rigthP.position.x) || (transform.position.x == leftP.position.x))
@@ -63,9 +63,9 @@ public class M_inion : MonoBehaviour
         if (canShoot)
         {   
             if (_currentTarget == leftP.position)
-                Instantiate(bulletPrefab, transform.position + new Vector3(1.2f, 0.8f, 0), Quaternion.Euler(0f, 0f, 40f));
+                Instantiate(bulletPrefab, transform.position + new Vector3(-1.2f, 0.8f, 0), Quaternion.Euler(0f, 0f, -90f));
             if (_currentTarget == rigthP.position)
-                Instantiate(bulletPrefab, transform.position + new Vector3(-1.2f, 0.8f, 0), Quaternion.Euler(0f, 0f, -40f));
+                Instantiate(bulletPrefab, transform.position + new Vector3(1.2f, 0.8f, 0), Quaternion.Euler(0f, 0f, 90f));
             canShoot = false;
             StartCoroutine(waitForShoot());
         }
@@ -79,17 +79,15 @@ public class M_inion : MonoBehaviour
 
     IEnumerator waitToWalk()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         canMove = true;
         if (transform.position.x == rigthP.position.x)
         {
             _currentTarget = leftP.position;
-            bullet.right = true;
         }
-        else if (transform.position.x == leftP.position.x)
+        if (transform.position.x == leftP.position.x)
         {
             _currentTarget = rigthP.position;
-            bullet.right = false;
         }
     }
 

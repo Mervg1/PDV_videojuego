@@ -93,13 +93,11 @@ public class Minion : Enemy
         {
             _currentTarget = pointB.position;
             right = true;
-            bullet.right = true;
         }
         else if (transform.position.x == pointB.position.x)
         {
             _currentTarget = pointA.position;
             right = false;
-            bullet.right = false;
         }
     }
 

@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minion : Enemy
+public class Minion : MonoBehaviour
 {
     private Vector3 _currentTarget;
-    [SerializeField] private GameObject bulletPrefab;
     private BulletEnemy bullet;
     private bool canShoot = true;
     private bool right = false;
     private bool canMove = true;
     private Animator _anim;
     private SpriteRenderer _sprite;
+
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] protected Transform pointA, pointB;
+    [SerializeField] protected int speed;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,7 +26,7 @@ public class Minion : Enemy
     }
 
     // Update is called once per frame
-    public override void Update()
+    void Update()
     {
         Movement();
         shoot();

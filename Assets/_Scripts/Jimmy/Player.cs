@@ -75,10 +75,14 @@ public class Player : MonoBehaviour
             Jump(true);
         }
 
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, 1.8f, 1 << 8);
-        Debug.DrawRay(transform.position, Vector2.down * 1.8f, Color.green);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, 1.9f, 1 << 8);
+        RaycastHit2D hitInfoRigth = Physics2D.Raycast(new Vector3(transform.position.x + 0.3f, transform.position.y, transform.position.z), Vector2.down, 1.9f, 1 << 8);
+        RaycastHit2D hitInfoLeft = Physics2D.Raycast(new Vector3(transform.position.x + -0.3f, transform.position.y, transform.position.z), Vector2.down, 1.9f, 1 << 8);
+        Debug.DrawRay(transform.position, Vector2.down * 1.9f, Color.green);
+        Debug.DrawRay(new Vector3(transform.position.x + 0.3f, transform.position.y, transform.position.z), Vector2.down * 1.9f, Color.green);
+        Debug.DrawRay(new Vector3(transform.position.x + -0.3f, transform.position.y, transform.position.z), Vector2.down * 1.9f, Color.green);
 
-        if(hitInfo.collider != null && !resetJump)
+        if ((hitInfo.collider != null || hitInfoRigth.collider != null || hitInfoLeft.collider != null) && !resetJump)
         {
             Jump(false);
             isGrounded = true;

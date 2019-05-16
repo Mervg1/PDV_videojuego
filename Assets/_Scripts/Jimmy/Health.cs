@@ -41,7 +41,7 @@ public class Health : MonoBehaviour
     {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Destroy(this.gameObject);
         health = 3;
     }

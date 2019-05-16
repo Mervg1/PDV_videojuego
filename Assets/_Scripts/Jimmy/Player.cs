@@ -21,9 +21,12 @@ public class Player : MonoBehaviour
     private Animator anim;
     private Rigidbody2D _rigid;
 
+
     [SerializeField] private Animator transitionAnim;
     [SerializeField] private string sceneName;
-    
+
+    private GameMaster gm;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,8 @@ public class Player : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        transform.position = gm.lastCheckPointPos;
     }
 
     // Update is called once per frame

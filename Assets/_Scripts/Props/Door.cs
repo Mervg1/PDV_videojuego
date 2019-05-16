@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
     public Dialogue enterDialogue;
     public Dialogue goFindKeyDialogue;
+    public Animator transitionAnim;
+    public string sceneName;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,7 +20,8 @@ public class Door : MonoBehaviour
             {
                 if(player.haveKey == true)
                 {
-                    TriggerDialogue(enterDialogue);
+                    //TriggerDialogue(enterDialogue);
+                    StartCoroutine(LoadScene());
                 }
                 else
                 {
@@ -29,5 +34,12 @@ public class Door : MonoBehaviour
     public void TriggerDialogue(Dialogue dialogue)
     {
         FindObjectOfType<StoryManager>().StartDialogue(dialogue);
+    }
+
+    IEnumerator LoadScene()
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(sceneName);
     }
 }

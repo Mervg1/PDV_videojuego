@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private float canFire = 0f;
     public bool havebrush = false;
     private bool rigth = true;
-    public bool haveKey = true;
+    public bool haveKey;
     public bool canMove = true;
     
     private SpriteRenderer sprite;
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
+        haveKey = false;
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         transform.position = gm.lastCheckPointPos;
     }

@@ -48,7 +48,7 @@ public class M_inion : MonoBehaviour
         {
             MoveAnimation(false);
             canMove = false;
-            StartCoroutine(waitToWalk());
+            StartCoroutine(WaitToTurn());
         }
 
         if (canMove)
@@ -77,17 +77,19 @@ public class M_inion : MonoBehaviour
         canShoot = true;
     }
 
-    IEnumerator waitToWalk()
+    IEnumerator WaitToTurn()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         canMove = true;
         if (transform.position.x == rigthP.position.x)
         {
             _currentTarget = leftP.position;
+            right = true;
         }
-        if (transform.position.x == leftP.position.x)
+        else if (transform.position.x == leftP.position.x)
         {
             _currentTarget = rigthP.position;
+            right = false;
         }
     }
 

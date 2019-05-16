@@ -54,13 +54,9 @@ public class Minion : Enemy
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(other.gameObject.tag == "Player")
-        {
-            Destroy(other.gameObject);
-        }
-        if(other.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Bullet")
         {
             Destroy(this.gameObject);
         }
@@ -71,9 +67,9 @@ public class Minion : Enemy
         if (canShoot)
         {
             if(right)
-                Instantiate(bulletPrefab, transform.position + new Vector3(1f, 0.8f, 0), Quaternion.Euler(0f, 0f, 40f));
+                Instantiate(bulletPrefab, transform.position + new Vector3(1f, 0.8f, 0), Quaternion.Euler(0f, 0f, 90f));
             if(!right)
-                Instantiate(bulletPrefab, transform.position + new Vector3(-1f, 0.8f, 0), Quaternion.Euler(0f, 0f, -40f));
+                Instantiate(bulletPrefab, transform.position + new Vector3(-1f, 0.8f, 0), Quaternion.Euler(0f, 0f, -90f));
             canShoot = false;
             StartCoroutine(waitForShoot());
         }

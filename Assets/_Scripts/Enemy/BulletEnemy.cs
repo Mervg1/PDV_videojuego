@@ -26,10 +26,10 @@ public class BulletEnemy : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player")
+        /*if(other.gameObject.tag == "Player")
         {
-            Destroy(other.gameObject);
-        }
+            //Destroy(other.gameObject);
+        }*/
         if(other.gameObject.tag  == "Floor")
         {
             Destroy(this.gameObject);

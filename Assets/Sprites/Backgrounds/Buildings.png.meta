@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 0ffdb2ce59707244088f0e9ada657cfb
+guid: 519b49c880f110c4f8d118460c48889d
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Paints_0
-    21300002: Paints_1
-    21300004: Paints_2
+    21300000: Buildings_0
+    21300002: Buildings_1
+    21300004: Buildings_2
+    21300006: Buildings_3
+    21300008: Buildings_4
+    21300010: Buildings_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -48,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -87,13 +90,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Paints_0
+      name: Buildings_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 41
-        width: 377
-        height: 377
+        x: 77
+        y: 978
+        width: 802
+        height: 1156
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,19 +104,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9d04833777e65a4dbfd131caf933e8f
+      spriteID: 032eb86cf3e15f7419f98cccd121239b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paints_1
+      name: Buildings_1
       rect:
         serializedVersion: 2
-        x: 462
-        y: 32
-        width: 379
-        height: 385
+        x: 1117
+        y: 981
+        width: 865
+        height: 1468
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce6ae77876b0918478532d0979527d44
+      spriteID: 00b9a7ab799a22d45b11b68c827e31c1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Paints_2
+      name: Buildings_2
       rect:
         serializedVersion: 2
-        x: 940
-        y: 43
-        width: 377
-        height: 377
+        x: 2297
+        y: 955
+        width: 858
+        height: 1361
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +144,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a698be7f4a200d64f8a21d051c552cd6
+      spriteID: f2e9535e712f4e74c8e76fd38c765c53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buildings_3
+      rect:
+        serializedVersion: 2
+        x: 3395
+        y: 967
+        width: 804
+        height: 1156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57044166405c85a43bc7aa487fd3c0fc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buildings_4
+      rect:
+        serializedVersion: 2
+        x: 4525
+        y: 944
+        width: 865
+        height: 1245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d017cce5803b4940aacafde60c2902b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buildings_5
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 175
+        width: 963
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b53b71957a527d8468e431b4d8b630db
       vertices: []
       indices: 
       edges: []
@@ -149,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ef54a51123fbecb47a3f8bf9a7bc241a
+    spriteID: 230c3f384a84a694092bed127c859fe6
     vertices: []
     indices: 
     edges: []

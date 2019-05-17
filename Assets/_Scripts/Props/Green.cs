@@ -49,16 +49,16 @@ public class Green : MonoBehaviour
             Player player = collision.GetComponent<Player>();
             if (player != null)
             {
-                StartCoroutine(LoadScene());
+                player.haveKey = true;
             }
             Destroy(this.gameObject);
         }
     }
 
-    IEnumerator LoadScene()
+    /*IEnumerator LoadScene()
     {
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(sceneName);
-    }
+    }*/
 }

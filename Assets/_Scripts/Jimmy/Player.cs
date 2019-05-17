@@ -9,12 +9,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float _jumpForce = 5.0f;
     [SerializeField] private bool isGrounded = false;
     [SerializeField] private bool resetJump = false;
-    [SerializeField] private GameObject paintDrop;
+    [SerializeField] private GameObject paintDrop, paintDrop2, paintDrop3;
     [SerializeField] private float fireRate = 0.25f;
     private float canFire = 0f;
     public bool havebrush = false;
     private bool rigth = true;
-    public bool haveKey;
+    public bool haveKey, havePistol;
     public bool canMove = true;
     
     private SpriteRenderer sprite;
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         haveKey = false;
+        havePistol = false;
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         transform.position = gm.lastCheckPointPos;
     }
@@ -108,15 +109,40 @@ public class Player : MonoBehaviour
 
     private void shoot()
     {
-        if (havebrush)
+        if (havebrush == true && havePistol == false)
         {
             if (Time.time > canFire)
             {
                 PincelAttackAnim(true);
-                if(rigth)
+                if (rigth)
                     Instantiate(paintDrop, transform.position + new Vector3(2.42f, 0.89f, 0), Quaternion.Euler(0, 0, 90f));
-                if(!rigth)
+                if (!rigth)
                     Instantiate(paintDrop, transform.position + new Vector3(-2.42f, 0.89f, 0), Quaternion.Euler(0, 0, -90f));
+                canFire = Time.time + fireRate;
+            }
+
+            StartCoroutine(WaitForShoot());
+        }
+        else if (havePistol == true)
+        {
+            havebrush = false;
+            if (Time.time > canFire)
+            {
+                PincelAttackAnim(true);
+                if (rigth == true)
+                {
+                    Instantiate(paintDrop, transform.position + new Vector3(2.42f, 0.89f, 0), Quaternion.Euler(0, 0, 120f));
+                    Instantiate(paintDrop2, transform.position + new Vector3(2.42f, 0.89f, 0), Quaternion.Euler(0, 0, 90f));
+                    Instantiate(paintDrop3, transform.position + new Vector3(2.42f, 0.89f, 0), Quaternion.Euler(0, 0, 60f));
+                }
+
+                if (rigth == false)
+                {
+                    Instantiate(paintDrop, transform.position + new Vector3(-2.42f, 0.89f, 0), Quaternion.Euler(0, 0, -120f));
+                    Instantiate(paintDrop2, transform.position + new Vector3(-2.42f, 0.89f, 0), Quaternion.Euler(0, 0, -90f));
+                    Instantiate(paintDrop3, transform.position + new Vector3(-2.42f, 0.89f, 0), Quaternion.Euler(0, 0, -60f));
+                }
+
                 canFire = Time.time + fireRate;
             }
 

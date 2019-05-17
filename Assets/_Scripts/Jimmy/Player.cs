@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject paintDrop, paintDrop2, paintDrop3;
     [SerializeField] public GameObject weapon1, weapon2;
     [SerializeField] private float fireRate = 0.25f;
+
+    public string level = "";
     private float canFire = 0f;
     public bool havebrush = false;
     private bool rigth = true;
@@ -203,11 +205,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*IEnumerator LoadScene()
+    public void SavePLayer()
     {
-        transitionAnim.SetTrigger("end");
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(sceneName);
-        Destroy(this.gameObject);
-    }*/
+        SaveSystem.SavePlayer(this);
+    }
 }

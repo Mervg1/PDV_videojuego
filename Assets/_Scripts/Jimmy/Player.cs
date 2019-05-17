@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _jumpForce = 5.0f;
     [SerializeField] private bool isGrounded = false;
     [SerializeField] private bool resetJump = false;
-    [SerializeField] private GameObject paintDrop, paintDrop2, paintDrop3;
+    [SerializeField] private GameObject paintDrop = null;
     [SerializeField] public GameObject weapon1, weapon2;
     [SerializeField] private float fireRate = 0.25f;
 
@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator transitionAnim;
     [SerializeField] private string sceneName;
 
+    private Renderer rend;
+    private Color colorToTurn = Color.red;
     private GameMaster gm;
 
 
@@ -42,6 +44,8 @@ public class Player : MonoBehaviour
         havePistol = false;
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         transform.position = gm.lastCheckPointPos;
+        rend = GetComponent<Renderer>();
+
     }
 
     // Update is called once per frame
@@ -152,15 +156,15 @@ public class Player : MonoBehaviour
                 if (rigth == true)
                 {
                     Instantiate(paintDrop, transform.position + new Vector3(2.42f, 0.89f, 0), Quaternion.Euler(0, 0, 120f));
-                    Instantiate(paintDrop2, transform.position + new Vector3(2.42f, 0.89f, 0), Quaternion.Euler(0, 0, 90f));
-                    Instantiate(paintDrop3, transform.position + new Vector3(2.42f, 0.89f, 0), Quaternion.Euler(0, 0, 60f));
+                    Instantiate(paintDrop, transform.position + new Vector3(2.42f, 0.89f, 0), Quaternion.Euler(0, 0, 90f));
+                    Instantiate(paintDrop, transform.position + new Vector3(2.42f, 0.89f, 0), Quaternion.Euler(0, 0, 60f));
                 }
 
                 if (rigth == false)
                 {
                     Instantiate(paintDrop, transform.position + new Vector3(-2.42f, 0.89f, 0), Quaternion.Euler(0, 0, -120f));
-                    Instantiate(paintDrop2, transform.position + new Vector3(-2.42f, 0.89f, 0), Quaternion.Euler(0, 0, -90f));
-                    Instantiate(paintDrop3, transform.position + new Vector3(-2.42f, 0.89f, 0), Quaternion.Euler(0, 0, -60f));
+                    Instantiate(paintDrop, transform.position + new Vector3(-2.42f, 0.89f, 0), Quaternion.Euler(0, 0, -90f));
+                    Instantiate(paintDrop, transform.position + new Vector3(-2.42f, 0.89f, 0), Quaternion.Euler(0, 0, -60f));
                 }
 
                 canFire = Time.time + fireRate;
@@ -202,11 +206,19 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             Health.health -= 1;
+            StartCoroutine(colorChangeCoroutine());
         }
     }
 
     public void SavePLayer()
     {
         SaveSystem.SavePlayer(this);
+    }
+
+    public IEnumerator colorChangeCoroutine()
+    {
+        rend.material.color = colorToTurn;
+        yield return new WaitForSeconds(0.2f);
+        rend.material.color = Color.white;
     }
 }

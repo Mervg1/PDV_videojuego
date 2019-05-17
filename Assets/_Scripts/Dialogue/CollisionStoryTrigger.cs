@@ -13,7 +13,6 @@ public class CollisionStoryTrigger : MonoBehaviour
             Player player = collision.GetComponent<Player>();
             if (player != null)
             {
-                player.havebrush = true;
                 TriggerDialogue();
 
             }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class PaintDrop : MonoBehaviour
 {
     [SerializeField] private float speed = 15f;
-    private bool right = true;
 
     // Start is called before the first frame update
     void Start()

@@ -12,7 +12,7 @@ public class Minion : MonoBehaviour
     private Animator _anim;
     private SpriteRenderer _sprite;
 
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject bulletPrefab = null;
     [SerializeField] protected Transform pointA, pointB;
     [SerializeField] protected int speed;
 

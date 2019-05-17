@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     public static int health = 3;
     public int numOfHearts = 3;
     public GameObject[] hearts;
-    [SerializeField] private Animator transitionAnim;
+    [SerializeField] private Animator transitionAnim = null;
     [SerializeField] private string sceneName;
 
     void Update()

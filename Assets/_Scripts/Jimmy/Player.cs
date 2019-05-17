@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private float canFire = 0f;
     public bool havebrush = false;
     private bool rigth = true;
-    public bool haveKey, havePistol, havePaint;
+    public bool haveKey, havePistol, havePaint, haveGreen;
     public bool canMove = true;
     private bool brushOrGun = false;
     

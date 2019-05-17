@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _jumpForce = 5.0f;
     [SerializeField] private bool isGrounded = false;
     [SerializeField] private bool resetJump = false;
-    [SerializeField] private GameObject paintDrop, paintDrop2, paintDrop3, weapon1;
-    [SerializeField] public GameObject weapon2;
+    [SerializeField] private GameObject paintDrop, paintDrop2, paintDrop3;
+    [SerializeField] public GameObject weapon1, weapon2;
     [SerializeField] private float fireRate = 0.25f;
     private float canFire = 0f;
     public bool havebrush = false;
@@ -109,15 +109,15 @@ public class Player : MonoBehaviour
             if (brushOrGun)
             {
                 brushOrGun = false;
-                weapon1.SetActive(false);
-                weapon2.SetActive(true);
+                weapon1.SetActive(true);
+                weapon2.SetActive(false);
 
             }
             else
             {
                 brushOrGun = true;
-                weapon1.SetActive(true);
-                weapon2.SetActive(false);
+                weapon1.SetActive(false);
+                weapon2.SetActive(true);
             }
         }
         if (Input.GetKeyDown(KeyCode.F))

@@ -46,7 +46,6 @@ public class Pistol : MonoBehaviour
             if (player != null)
             {
                 player.havePistol = true;
-                player.weapon2.SetActive(true);
             }
             Destroy(this.gameObject);
         }

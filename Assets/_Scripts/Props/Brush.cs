@@ -46,6 +46,8 @@ public class Brush : MonoBehaviour
             if(player != null)
             {
                 player.havebrush = true;
+                player.weapon1.SetActive(true);
+
             }
             Destroy(this.gameObject);
         }

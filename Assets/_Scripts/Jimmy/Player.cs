@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private bool rigth = true;
     public bool haveKey, havePistol;
     public bool canMove = true;
+    private bool brushOrGun = false;
     
     private SpriteRenderer sprite;
     private Animator anim;
@@ -101,6 +102,18 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log(brushOrGun);
+            if (brushOrGun)
+            {
+                brushOrGun = false;
+            }
+            else
+            {
+                brushOrGun = true;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.F))
         {
             shoot();
@@ -109,7 +122,7 @@ public class Player : MonoBehaviour
 
     private void shoot()
     {
-        if (havebrush == true && havePistol == false)
+        if (havebrush == true && brushOrGun == false)
         {
             if (Time.time > canFire)
             {
@@ -123,9 +136,8 @@ public class Player : MonoBehaviour
 
             StartCoroutine(WaitForShoot());
         }
-        else if (havePistol == true)
+        else if (havePistol == true && brushOrGun == true)
         {
-            havebrush = false;
             if (Time.time > canFire)
             {
                 PincelAttackAnim(true);
